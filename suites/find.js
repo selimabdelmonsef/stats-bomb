@@ -5,7 +5,7 @@ import { getRandomItems, random } from '../utils.js'
 import * as main from '../index.js'
 import * as naive from '../index.naive.js'
 
-const itemsCount = 9999
+const itemsCount = 9999;
 const randomItems = getRandomItems(itemsCount)
 
 const values = pluck('value', randomItems).sort(subtract)
@@ -13,8 +13,8 @@ const nearStart = values[random(0, 50)]
 const nearMiddle = values[Math.ceil(itemsCount / 2) + random(-25, 25)]
 const nearEnd = values[itemsCount - random(0, 50)]
 
-const naiveList = naive.List({ initial: randomItems, sortKey: 'value' })
-const mainList = main.List({ initial: randomItems, sortKey: 'value' })
+const naiveList = naive.List({ sortKey: 'value', initial: randomItems, initialOrder: false });
+const mainList = main.List({ sortKey: 'value', initial: randomItems, initialOrder: false });
 
 // FIND START
 b.suite(
