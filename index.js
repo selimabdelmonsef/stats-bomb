@@ -6,18 +6,19 @@ const sort = (list, sortKey) => {
   });
 };
 
-const findIndex = (list, sortKey) => value => {
-  // SHOULD IMPLEMENT
-  return -1;
-}
+  const findIndex = (list, sortKey) => value => {
+    return list.findIndex((element) => {
+      return (element[sortKey] === value) || (element === value);
+    });
+  }
 
 
-const insert = (list, sortKey, item) => {
-  // SHOULD IMPLEMENT a preserving order insertion
-  return list;
-}
+  const insert = (list, sortKey, item) => {
+    // SHOULD IMPLEMENT a preserving order insertion
+    return list;
+  }
 
-
+  
 const remove = (list, sortKey, value) => {
   // SHOULD IMPLEMENT
   return list;
