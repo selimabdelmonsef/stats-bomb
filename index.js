@@ -1,10 +1,9 @@
 import { pipe, always, applySpec } from 'ramda';
 
-const getValue = (o, sortKey) => sortKey ? o[sortKey] : o
-
 const sort = (list, sortKey) => {
-  // SHOULD IMPLEMENT
-  return list;
+  return list.sort( (a, b) => {
+    return (a[sortKey] || a) - (b[sortKey] || b);
+  });
 };
 
 const findIndex = (list, sortKey) => value => {
@@ -24,7 +23,11 @@ const remove = (list, sortKey, value) => {
   return list;
 }
 
-export const List = ({ sortKey, initial, initialOrder}) => {
+/**
+ * @param { (sortkey) to find and delete, (initial) is the array of objects, (initialOrder) boolean true if sorted } keys 
+ * @returns processed array
+ */
+export const List = ({ sortKey, initial, initialOrder }) => {
   const items = initialOrder ? initial : sort(initial, sortKey);
 
   return {
@@ -41,5 +44,5 @@ export const List = ({ sortKey, initial, initialOrder}) => {
       initial: insert(items, sortKey, item),
       initialOrder: true
     })
-  }
+  };
 }
