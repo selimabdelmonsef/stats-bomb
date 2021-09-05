@@ -26,8 +26,16 @@ describe('List', () => {
     expect(actual).toEqual(expected);
   })
 
-  it('should insert b into list a', () => {
-    const list = List({ initial: [1, 2, 3, 4], initialOrder: true  })
+  it('should insert b into list a in index.js', () => {
+    const list = main.List({ initial: [1, 2, 3, 4], initialOrder: true  })
+    const expected = [1, 2, 3, 4, 5];
+    const actual = list.insert(5).items
+
+    expect(actual).toEqual(expected)
+  });
+
+  it('should insert b into list a in index.naive.js', () => {
+    const list = main.List({ initial: [1, 2, 3, 4], initialOrder: true  })
     const expected = [1, 2, 3, 4, 5];
     const actual = list.insert(5).items
 
@@ -43,20 +51,18 @@ describe('List', () => {
   })
 
   it('should findIndex of b at list a in index.js', () => {
-    const list = main.List({ sortKey: 'value', initial: [{value: 1}, {value: 2}, {value: 3}, {value: 4}], initialOrder: true  });
+    const list = main.List({ sortKey: 'value', initial: [1, 2, 3, 4], initialOrder: true  });
     const expected = 2;
     const actual = list.findIndex(3);
     expect(actual).toEqual(expected);
   });
 
   it('should findIndex of b at list a in index.naive.js', () => {
-    const list = naive.List({ sortKey: 'value', initial: [1, 2, 3, 4], initialOrder: true  });
-
+    const list = naive.List({ sortKey: 'value', initial: [{value: 1}, {value: 2}, {value: 3}, {value: 4}], initialOrder: true  });
     const expected = 2;
     const actual = list.findIndex(3);
 
     expect(actual).toEqual(expected);
   });
-
 
 })
