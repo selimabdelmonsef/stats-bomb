@@ -42,13 +42,20 @@ describe('List', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should remove b from list a', () => {
-    const list = List({ initial: [1, 2, 3, 4], initialOrder: true  })
+  it('should remove b from list a in index.naive.js', () => {
+    const list = naive.List({ initial: [1, 2, 3, 4], initialOrder: true  })
     const expected = [1, 2, 3];
-    const actual = list.remove(4).items
+    const actual = list.remove(4).items 
+    expect(actual).toEqual(expected)
+  });
+
+  it('should remove b from list a in index.js', () => {
+    const list = main.List({ initial: [1, 2, 3, 4], initialOrder: true  })
+    const expected = [1, 2, 4];
+    const actual = list.remove(3).items
 
     expect(actual).toEqual(expected)
-  })
+  });
 
   it('should findIndex of b at list a in index.js', () => {
     const list = main.List({ sortKey: 'value', initial: [1, 2, 3, 4], initialOrder: true  });
