@@ -20,7 +20,10 @@ const sort = (list, sortKey) => {
 
   
 const remove = (list, sortKey, value) => {
-  // SHOULD IMPLEMENT
+  const index = list.indexOf(value);
+if (index > -1) {
+   list.splice(index, 1);
+}
   return list;
 }
 

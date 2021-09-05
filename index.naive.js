@@ -15,7 +15,6 @@ const insert = (list, sortKey, item) => {
 }
 
 const remove = (list, sortKey, value) => {
-  // SHOULD OPTIMIZE
   return list.filter(i => getValue(i) !== value);
 }
 
