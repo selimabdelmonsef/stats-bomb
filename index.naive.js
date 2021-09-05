@@ -3,17 +3,14 @@ import { pipe, always, applySpec } from 'ramda';
 const getValue = (o, sortKey) => sortKey ? o[sortKey] : o
 
 const sort = (list, sortKey) => {
-  // SHOULD OPTIMIZE
   return list.sort((a, b) => getValue(a, sortKey) - getValue(b, sortKey));
 };
 
 const findIndex = (list, sortKey) => value => {
-  // SHOULD OPTIMIZE
   return list.findIndex(i => getValue(i, sortKey) === value);
 }
 
 const insert = (list, sortKey, item) => {
-  // SHOULD OPTIMIZE
   return [...list, item];
 }
 

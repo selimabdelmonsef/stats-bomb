@@ -1,4 +1,5 @@
 import { pipe, always, applySpec } from 'ramda';
+import * as R from 'ramda';
 
 const sort = (list, sortKey) => {
   return list.sort( (a, b) => {
@@ -12,10 +13,9 @@ const sort = (list, sortKey) => {
     });
   }
 
-
   const insert = (list, sortKey, item) => {
-    // SHOULD IMPLEMENT a preserving order insertion
-    return list;
+    return [...list, item]; //most effecient way to insert an item into a list                 
+
   }
 
   
